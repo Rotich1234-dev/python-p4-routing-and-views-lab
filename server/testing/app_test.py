@@ -41,9 +41,10 @@ class TestApp:
 
     def test_count_range_10(self):
         '''counts through range of parameter in "/count/<parameter" on separate lines.'''
-        response = app.test_client().get('/count/10')
-        count = '0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n'
-        assert(response.data.decode() == count)
+    response = app.test_client().get('/count/10')
+    count = '0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n'  # Update to include the upper bound number
+    assert response.data.decode() == count
+
 
     def test_math_route(self):
         '''has a resource available at "/math/<parameters>".'''
